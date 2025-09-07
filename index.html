@@ -2,19 +2,18 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Stratton Tally Count</title>
+  <title>STRATTON TALLY COUNT</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
     /* --------- Base / Theme --------- */
     :root{
-      --row-alpha: 0.78;           /* how opaque the row is (0=transparent, 1=solid) */
-      --row-height: 38px;          /* ~75% of the old 50px */
-      --row-width: 66vw;           /* 2/3 of viewport width */
+      --row-alpha: 0.9;            /* less transparent, easier on the eyes */
+      --row-height: 38px;
+      --row-width: 66vw;
       --fg: #e9e9e9;
-      --fg-muted:#cfcfcf;
       --bg-dim: rgba(0,0,0,var(--row-alpha));
       --btn-plus: #4caf50;
-      --btn-minus: #444;           /* neutral minus (no red) */
+      --btn-minus: #444;
       --btn-reset: #777;
       --radius: 10px;
     }
@@ -35,44 +34,52 @@
 
     /* --------- Header --------- */
     h1{
+      position: fixed;             /* stays at top when scrolling */
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
       margin: 0;
-      padding: 28px 16px;          /* taller, looks intentional */
+      padding: 28px 16px;
       background: #ffba17;
       color: #000;
       text-align: center;
       font-weight: 700;
       font-size: clamp(22px, 3vw, 36px);
-      text-decoration: underline;
-      letter-spacing: .3px;
+      letter-spacing: 1px;
+    }
+
+    /* --------- Push content below header --------- */
+    .spacer{
+      height: 90px;  /* same as header height so counters don't overlap it */
     }
 
     /* --------- List container --------- */
     .list{
       width: 100%;
       display: grid;
-      place-items: center;         /* centers rows horizontally */
+      place-items: center;
       gap: 12px;
-      padding: 18px 0 36px;
+      padding: 0 0 36px;
     }
 
     /* --------- Each row --------- */
     .counter{
-      width: min(var(--row-width), 1100px); /* 2/3 screen but capped for huge monitors */
+      width: min(var(--row-width), 1100px);
       height: var(--row-height);
-      background: var(--bg-dim);            /* darker but still shows background */
+      background: var(--bg-dim);
       border-radius: var(--radius);
       display: flex;
       align-items: center;
       justify-content: space-between;
       padding: 8px 14px;
-      backdrop-filter: blur(1.2px);         /* subtle readability boost */
+      backdrop-filter: blur(1.2px);
       -webkit-backdrop-filter: blur(1.2px);
     }
 
     .label{
       font-weight: 700;
       font-size: 15px;
-      line-height: 1;            /* keeps row compact */
       flex: 1;
       overflow: hidden;
       text-overflow: ellipsis;
@@ -84,7 +91,6 @@
       text-align: center;
       font-size: 18px;
       font-weight: 600;
-      color: var(--fg);
       margin: 0 10px;
     }
 
@@ -105,7 +111,7 @@
     .btn.plus  { background: var(--btn-plus); }
     .btn.reset { background: var(--btn-reset); margin-left: 6px; }
 
-    /* Small screens: keep it comfy */
+    /* Small screens */
     @media (max-width: 640px){
       :root{ --row-width: 92vw; }
       .label{ font-size: 14px; }
@@ -114,7 +120,8 @@
   </style>
 </head>
 <body>
-  <h1>Stratton Tally Count</h1>
+  <h1>STRATTON TALLY COUNT</h1>
+  <div class="spacer"></div> <!-- pushes counters below fixed header -->
 
   <div class="list" id="counters"></div>
 
@@ -195,7 +202,6 @@
         return row;
       }
 
-      // Build UI
       countersDiv.innerHTML = "";
       labels.forEach(l => countersDiv.appendChild(makeRow(l)));
     });
