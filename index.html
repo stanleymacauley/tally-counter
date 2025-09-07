@@ -5,52 +5,65 @@
   <title>Stratton Tally Count</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background: url('https://raw.githubusercontent.com/stanleymacaulay/tally-counter/main/wolf.jpg') no-repeat center center fixed;
+      font-family: "Century Gothic", Arial, sans-serif;
+      background: url('wolf.jpg') no-repeat center center fixed;
       background-size: cover;
       margin: 0;
       padding: 0;
       color: #e0e0e0;
     }
+
     h1 {
       text-align: center;
       padding: 20px;
-      color: #fff;
-      background: rgba(0, 0, 0, 0.7);
+      color: black;
+      background: #ffba17;
       margin: 0;
       font-size: 2em;
+      font-weight: bold;
+      text-decoration: underline;
+      font-family: "Century Gothic", Arial, sans-serif;
     }
+
     .counter {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      background: rgba(0, 0, 0, 0.7);
+      background: rgba(0, 0, 0, 0.6); /* transparent dark */
       border-radius: 8px;
       margin: 8px auto;
-      padding: 10px 20px;
-      max-width: 90%;
-      height: 50px; /* less tall */
+      padding: 8px 15px;
+      max-width: 66%;  /* 2/3 of screen width */
+      height: 37px;    /* 75% of previous 50px */
+      font-family: "Century Gothic", Arial, sans-serif;
     }
+
     .label {
       font-weight: bold;
       flex: 1;
       font-size: 1em;
+      font-family: "Century Gothic", Arial, sans-serif;
     }
+
     .value {
       font-size: 1.2em;
       margin: 0 15px;
       width: 40px;
       text-align: center;
+      font-family: "Century Gothic", Arial, sans-serif;
     }
+
     button {
       padding: 6px 10px;
       border: none;
       border-radius: 6px;
       cursor: pointer;
       font-size: 0.9em;
+      font-family: "Century Gothic", Arial, sans-serif;
     }
+
     button.add { background: #4caf50; color: white; }
-    button.sub { background: #f44336; color: white; }
+    button.sub { background: #444; color: white; } /* removed red, neutral gray */
     button.reset { background: #777; color: white; margin-left: 5px; }
   </style>
 </head>
@@ -112,10 +125,4 @@
       countersDiv.appendChild(div);
 
       function update() {
-        value.textContent = counts[label];
-        localStorage.setItem("sdrCounts", JSON.stringify(counts));
-      }
-    });
-  </script>
-</body>
-</html>
+        value
