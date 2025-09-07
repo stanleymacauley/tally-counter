@@ -2,29 +2,60 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>SDR Counters</title>
+  <title>Stratton Tally Count</title>
   <style>
-    body { font-family: Arial, sans-serif; background: #f9fafb; margin: 20px; }
-    h1 { text-align: center; }
-    .counter { 
-      display: flex; align-items: center; 
-      justify-content: space-between; 
-      background: #fff; 
-      border-radius: 10px; 
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1); 
-      padding: 15px; margin: 10px auto; 
-      max-width: 500px;
+    body {
+      font-family: Arial, sans-serif;
+      background: url('https://raw.githubusercontent.com/stanleymacaulay/tally-counter/main/wolf.jpg') no-repeat center center fixed;
+      background-size: cover;
+      margin: 0;
+      padding: 0;
+      color: #e0e0e0;
     }
-    .label { font-weight: bold; flex: 1; }
-    .value { font-size: 1.5em; margin: 0 20px; }
-    button { padding: 8px 12px; border: none; border-radius: 6px; cursor: pointer; }
+    h1 {
+      text-align: center;
+      padding: 20px;
+      color: #fff;
+      background: rgba(0, 0, 0, 0.7);
+      margin: 0;
+      font-size: 2em;
+    }
+    .counter {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(0, 0, 0, 0.7);
+      border-radius: 8px;
+      margin: 8px auto;
+      padding: 10px 20px;
+      max-width: 90%;
+      height: 50px; /* less tall */
+    }
+    .label {
+      font-weight: bold;
+      flex: 1;
+      font-size: 1em;
+    }
+    .value {
+      font-size: 1.2em;
+      margin: 0 15px;
+      width: 40px;
+      text-align: center;
+    }
+    button {
+      padding: 6px 10px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 0.9em;
+    }
     button.add { background: #4caf50; color: white; }
     button.sub { background: #f44336; color: white; }
     button.reset { background: #777; color: white; margin-left: 5px; }
   </style>
 </head>
 <body>
-  <h1>SDR Sales Counters</h1>
+  <h1>Stratton Tally Count</h1>
 
   <div id="counters"></div>
 
